@@ -170,12 +170,12 @@ nav a:hover {
     margin-bottom: 15px;
 }
 
-/* Layout em duas colunas (Produção e Desafios) */
+/* Layout flexível em duas colunas aplicável a múltiplos blocos */
 .conteudo {
     display: flex;
     gap: 40px;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 40px; /* Aumentado para dar espaço entre blocos repetidos */
 }
 
 .conteudo > div {
@@ -374,13 +374,15 @@ footer {
         flex-direction: column;
         gap: 25px;
     }
-    
-    /* Inverte a ordem no celular para a imagem ficar acima do texto se preferir */
-    #producao .conteudo {
-        flex-direction: column-reverse; 
+
+    /* Correção do espaçamento interno de margem inline do HTML no Mobile */
+    .conteudo[style] {
+        margin-top: 30px !important;
     }
 
-    section {
-        padding: 40px 15px;
+    /* Força a nova imagem a subir no mobile para manter o padrão Foto -> Texto */
+    #producao .conteudo:nth-of-type(2) {
+        flex-direction: column-reverse;
     }
 }
+
